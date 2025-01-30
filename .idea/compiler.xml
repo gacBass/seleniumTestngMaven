@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="MavenTestNgDemo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="automationDemo" target="19" />
+      <module name="automationdemo" target="19" />
+      <module name="java_testng_demo" target="19" />
+      <module name="Maven_TestNG demo" target="19" />
+      <module name="mavenTestNgDemo" target="19" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
