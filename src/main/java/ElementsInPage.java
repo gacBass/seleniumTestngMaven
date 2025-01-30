@@ -40,17 +40,22 @@ public class ElementsInPage {
     @FindBy(css = "h2[data-test=\"page-title\"]")
     public WebElement categoryTitle;
 
+    @FindBy(css = "ul.pagination li")
+    List<WebElement> paginator;
+
+    @FindBy(css = "ul.pagination li")
+    public WebElement paginatorFirstElement;
+
 
     public void findElementInTable(String labelToFind, List<WebElement> listElements) {
 
-        String textToFind = labelToFind;
-
         for (WebElement element : listElements) {
-            if (element.getText().equals(textToFind)) {
+            if (element.getText().equals(labelToFind)) {
                 element.click();
                 break;
             }
         }
     }
+
 
 }

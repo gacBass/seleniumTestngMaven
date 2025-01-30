@@ -2,6 +2,6 @@
 <suite name="MyTestSuite">
     <test name="MyTests">
         <classes>
-            <class name="baseClass" />  </classes>
+            <class name="mainPageTest" />  </classes>
     </test>
 </suite>
