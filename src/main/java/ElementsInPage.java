@@ -46,6 +46,15 @@ public class ElementsInPage {
     @FindBy(css = "ul.pagination li")
     public WebElement paginatorFirstElement;
 
+    @FindBy(css = "button[data-test=\"language\"]\n")
+    public WebElement languageBtn;
+
+    @FindBy(css = "ul.dropdown-menu.dropdown-menu-right.show li")
+    List<WebElement> languages;
+
+    @FindBy(css= "h4.grid-title")
+    List<WebElement> titles;
+
 
     public void findElementInTable(String labelToFind, List<WebElement> listElements) {
 
