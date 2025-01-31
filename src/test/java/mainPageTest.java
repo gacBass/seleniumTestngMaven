@@ -8,7 +8,7 @@ public class mainPageTest extends baseClass {
     @Test
     public void clickElementInTable() throws InterruptedException {
         elements = new ElementsInPage(driver);
-        elements.searchBox.click();
+        elements.sortBox.click();
         elements.dropdownOption.click();
         Thread.sleep(3000); //not best practise but needed to wait for table to reload
         elements.findElementInTable("Belt Sander", elements.elementsInTable);
@@ -65,8 +65,26 @@ public class mainPageTest extends baseClass {
         Assert.assertEquals("Zoeken", elements.titles.get(2).getText());
 
 
+    }
 
+    @Test
+    public void moveSliderMax() {
+        elements = new ElementsInPage(driver);
+        //moves the slider to a predefined value = 121, in this slider no other action method works
+        elements.moveSlider(elements.sliderMax, 29);
+        Assert.assertEquals("121", elements.sliderMaxLabel.getText());
+    }
+
+    @Test
+    public void search() throws InterruptedException {
+
+        elements = new ElementsInPage(driver);
+        elements.searchBox.sendKeys("Random Orbit Sander");
+        elements.searchBoxBtn.click();
+        Thread.sleep(2000);
+        Assert.assertEquals("Random Orbit Sander", elements.elementsInTable.get(0).getText());
 
     }
+
 
 }

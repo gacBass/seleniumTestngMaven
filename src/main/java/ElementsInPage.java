@@ -1,13 +1,17 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class ElementsInPage {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     public ElementsInPage(WebDriver driver) {
 
@@ -20,10 +24,13 @@ public class ElementsInPage {
     public WebElement dropdownOption;
 
     @FindBy(css = "select.form-select")
+    public WebElement sortBox;
+
+    @FindBy(css = "input#search-query")
     public WebElement searchBox;
 
-    @FindBy(css = "select option")
-    List<WebElement> listElements;
+    @FindBy(css = "button[data-test=\"search-submit\"]\n")
+    public WebElement searchBoxBtn;
 
     @FindBy(css = "div.card-body h5")
     List<WebElement> elementsInTable;
@@ -52,8 +59,15 @@ public class ElementsInPage {
     @FindBy(css = "ul.dropdown-menu.dropdown-menu-right.show li")
     List<WebElement> languages;
 
-    @FindBy(css= "h4.grid-title")
+    @FindBy(css = "h4.grid-title")
     List<WebElement> titles;
+
+
+    @FindBy(css = "span.ngx-slider-span.ngx-slider-pointer.ngx-slider-pointer-max")
+    public WebElement sliderMax;
+
+    @FindBy(css = "span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-high\n")
+    public WebElement sliderMaxLabel;
 
 
     public void findElementInTable(String labelToFind, List<WebElement> listElements) {
@@ -67,4 +81,19 @@ public class ElementsInPage {
     }
 
 
+    public void moveSlider(WebElement element, int value) {
+
+        Actions action = new Actions(driver);
+        action.clickAndHold(element).moveByOffset(value, 0).release().perform();
+
+
+    }
+
+    public void waitForElement(WebElement element) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+
+
+    }
 }
